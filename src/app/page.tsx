@@ -100,40 +100,9 @@ export default function Home() {
           </div>
         </header>
       </div>
-      <main className="h-full w-screen flex justify-center items-start flex-col font-[family-name:var(--font-geist-sans)]">
-        <section className="hero relative h-full w-full min-h-[1438px] bg-[#111] overflow-hidden bg-grey-1 flex justify-center items-center">
-          <div>
-            <div className="container-main relative flex h-full flex-col items-center w-xxl min-h-[800px]">
-              <h1
-                className="relative z-30 w-full bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-80% to-[#fdf7fe] bg-clip-text font-title text-[76px] font-bold leading-[1] tracking-tight text-transparent "
-              >
-
-              </h1>
-            <p className="relative z-30 mt-5 max-w-md text-[18px] leading-snug tracking-tight  text-white">
-            </p>
-            <div className="mt-11 lg:mt-9 md:mt-7 sm:mt-5">
-              <GradientButton>
-                <span className="text-[#5A250A]">Explore now</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 17 9"
-                  className="h-[9px] w-[17px] text-[#5A250A]"
-                >
-                  <path
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    d="m12.495 0 4.495 4.495-4.495 4.495-.99-.99 2.805-2.805H0v-1.4h14.31L11.505.99z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </GradientButton>
-            </div>
-          </div>
-          </div>
-        </section>
-        {/* HERO SECTION */}
-        <section className="relative flex flex-col items-center justify-center pt-32 pb-16 text-center">
+      <main className="h-full w-screen flex justify-center items-start flex-col font-[family-name:var(--font-geist-sans)] min-h-[1438px] bg-[#111]">
+        <section className=" w-full relative flex flex-col items-center justify-center pt-32 pb-16 text-center">
+          <div className="relative flex flex-col items-center justify-center pt-32 pb-16 text-center">
           <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-lg mb-6 bg-gradient-to-br from-blue-500/30 to-purple-500/30">
             <img src="https://ui-avatars.com/api/?name=Nguyen+Van+A&background=0D8ABC&color=fff&size=256" alt="Nguyen Van A" className="w-full h-full object-cover" />
           </div>
@@ -151,6 +120,7 @@ export default function Home() {
           <p className="max-w-2xl mx-auto text-lg text-gray-300 font-medium leading-relaxed animate-fade-in-up">
             Versatile and results-driven Full-Stack Software Engineer with nearly 4 years of hands-on experience designing and developing end-to-end web applications. Adept in both front-end and back-end technologies, with a strong foundation in TypeScript, React.js, Next.js, NestJS, and PostgreSQL. Proven ability to deliver high-quality, scalable solutions across various domains including healthcare, CRM, and data analytics.
           </p>
+          </div>
         </section>
 
         {/* ABOUT SECTION */}
