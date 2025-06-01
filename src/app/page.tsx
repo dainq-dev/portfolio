@@ -81,9 +81,9 @@ export default function Home() {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={`fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none transition-all duration-300`}>
+      <div className={`z-999 fixed top-4 left-0 right-0 flex justify-center pointer-events-none transition-all duration-300`}>
         <header
-          className={`w-full max-w-5xl mx-auto h-[60px] flex items-center justify-between px-6 transition-all duration-300 pointer-events-auto
+          className={`z-999 w-full max-w-5xl mx-auto h-[60px] flex items-center justify-between px-6 transition-all duration-300 pointer-events-auto
             ${isScrolled ? 'bg-white/80 dark:bg-black/90 backdrop-blur-md rounded-2xl border border-black/10 dark:border-white/10 shadow-lg' : 'bg-transparent'}
           `}
           style={{
@@ -102,7 +102,7 @@ export default function Home() {
           <div className="flex items-center space-x-4">
             <Button size="sm" className="bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 text-black dark:text-white border border-black/20 dark:border-white/20">Resume</Button>
             <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">Contact Me</Button>
-            <button onClick={toggleTheme} className="ml-2 p-2 rounded-full bg-transparent border-none outline-none light:bg-black/10 dark:bg-white/10 transition-colors">
+            <button onClick={toggleTheme} className="ml-2 p-2 rounded-full  border-none outline-none bg-black/10 dark:bg-white/10 transition-colors">
               {theme === 'dark' ? (
                 <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M17.75 15.5A6.75 6.75 0 0 1 8.5 6.25a.75.75 0 0 0-.75-.75A8 8 0 1 0 18 19.25a.75.75 0 0 0-.75-.75Z"/></svg>
               ) : (
@@ -113,25 +113,25 @@ export default function Home() {
         </header>
       </div>
       <main className="h-full w-full min-h-[1438px] bg-white dark:bg-[#111] transition-colors duration-300">
-        <InteractiveBackground />ß
+        <InteractiveBackground />
         <section className="max-w-5xl mx-auto w-full px-4 relative flex flex-col items-center justify-center pt-32 pb-16 text-center z-51">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
-            <div className="flex flex-col items-center md:items-start flex-1 z-10">
+          <div className="flex flex-col  items-center justify-center gap-10 w-full">
+            <div className="flex flex-col items-center justify-center  flex-1 z-10 w-full">
               <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-200 dark:border-white/20 shadow-lg mb-6 bg-gradient-to-br from-blue-100/60 to-purple-100/60 dark:from-blue-500/30 dark:to-purple-500/30">
-                <img src="https://ui-avatars.com/api/?name=Nguyen+Van+A&background=0D8ABC&color=fff&size=256" alt="Nguyen Van A" className="w-full h-full object-cover" />
+                <img src="https://ui-avatars.com/api/?name=Nguyen+Quoc+Dai&background=0D8ABC&color=fff&size=256" alt="Nguyen Van A" className="w-full h-full object-cover" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-black via-blue-700 to-purple-700 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-2 drop-shadow-lg">Nguyễn Văn A</h1>
-              <h2 className="text-xl md:text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4 tracking-wide">Front-end Developer</h2>
+              <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-black via-blue-700 to-purple-700 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-2 drop-shadow-lg">Nguyễn Quốc Đại</h1>
+              <h2 className="text-xl md:text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4 tracking-wide">Software Developer</h2>
               <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
-                <a href="mailto:your.email@gmail.com" className="hover:scale-110 transition-transform" title="Email"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#60a5fa" d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.379l8 5.334 8-5.334V6.5a.5.5 0 0 0-.5-.5h-15Zm15 13a.5.5 0 0 0 .5-.5V9.121l-7.5 5-7.5-5V17.5a.5.5 0 0 0 .5.5h15Z"/></svg></a>
-                <a href="https://github.com/your-github" target="_blank" rel="noopener" className="hover:scale-110 transition-transform" title="Github"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.089 2.91.833.091-.647.35-1.09.636-1.341-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z"/></svg></a>
-                <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener" className="hover:scale-110 transition-transform" title="LinkedIn"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#60a5fa" d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
+                <a href="mailto:dainguyen020199@gmail.com" className="hover:scale-110 transition-transform" title="Email"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#60a5fa" d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.379l8 5.334 8-5.334V6.5a.5.5 0 0 0-.5-.5h-15Zm15 13a.5.5 0 0 0 .5-.5V9.121l-7.5 5-7.5-5V17.5a.5.5 0 0 0 .5.5h15Z"/></svg></a>
+                <a href="https://github.com/dainq-dev" target="_blank" rel="noopener" className="hover:scale-110 transition-transform" title="Github"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.089 2.91.833.091-.647.35-1.09.636-1.341-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z"/></svg></a>
+                <a href="https://www.linkedin.com/in/nqd-020199hcm/" target="_blank" rel="noopener" className="hover:scale-110 transition-transform" title="LinkedIn"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#60a5fa" d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
-                <a href="/NguyenVanA_CV.pdf" download className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-500 dark:to-purple-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform">Download CV</a>
+                <a href="/NguyenQuocDai_CV_HCM.pdf" download className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-500 dark:to-purple-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform">Download CV</a>
                 <a href="#contact" className="inline-block px-6 py-2 rounded-full border border-blue-400 text-blue-700 dark:text-blue-400 font-semibold hover:bg-blue-400 hover:text-white transition-colors shadow-lg">Contact Me</a>
               </div>
-              <p className="max-w-2xl mx-auto text-lg text-gray-700 dark:text-gray-300 font-medium leading-relaxed animate-fade-in-up text-center md:text-left">
+              <p className="w-full mx-auto text-lg text-gray-700 dark:text-gray-300 font-medium leading-relaxed animate-fade-in-up text-center md:text-left">
                 Versatile and results-driven Full-Stack Software Engineer with nearly 4 years of hands-on experience designing and developing end-to-end web applications. Adept in both front-end and back-end technologies, with a strong foundation in TypeScript, React.js, Next.js, NestJS, and PostgreSQL. Proven ability to deliver high-quality, scalable solutions across various domains including healthcare, CRM, and data analytics.
               </p>
             </div>

@@ -49,7 +49,7 @@ function SceneObjects() {
 
 export default function InteractiveBackground() {
   return (
-    <div className="fixed inset-0 z-50">
+    <div className="fixed inset-0 z-1">
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
         <ambientLight intensity={0.8} />
         <pointLight position={[10, 10, 10]} intensity={1} />
