@@ -1,169 +1,105 @@
+'use client';
+
 import AnimatedBackground from "@/components/background-animation";
 import { Button } from "@/components/ui/button";
 import GradientButton from "@/components/ui/gradient-button";
-import React from "react";
-
-
+import React, { useEffect, useState } from "react";
 
 export default function Home() {
-  return (
-    <React.Fragment>
-      <header className=" h-[60px] bg-transparent transition-colors duration-200 px-safe pt-safe">
-        <div
-          className="container-main relative z-10 flex h-full items-center"
-          aria-label="Global"
-        >
-          {/* <Logo /> */}
-          <nav className="ml-[77px]">
-            <ul className="flex">
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <header className="h-[70px] bg-transparent">
+        <div className="container mx-auto px-4 h-[60px] flex items-center justify-between">
+          <nav className="flex items-center space-x-8">
+            <a href="/" className="text-white font-bold text-xl">
+              Portfolio
+            </a>
+            <ul className="flex space-x-6">
               <li>
-                <a
-                  className="inline-flex whitespace-pre p-3 text-[14px] text-white transition-colors duration-200 hover:text-blue"
-                  href="/pricing"
-                >
-                  Pricing
-                </a>
+                <a className="text-white/80" href="#about">About</a>
               </li>
-
-              <li className="group relative">
-                <button
-                  className="inline-flex items-center gap-x-1.5 whitespace-pre p-3 text-[14px] text-white transition-colors duration-200 hover:text-blue"
-                  type="button"
-                >
-                  Resources
-                  <img
-                    alt=""
-                    width={8}
-                    height={14}
-                    decoding="async"
-                    data-nimg={1}
-                    style={{ color: "transparent" }}
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMCA2Ij48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBkPSJtMSAxIDQgNCA0LTQiIG9wYWNpdHk9Ii42Ii8+PC9zdmc+"
-                  />
-                </button>
-                <div className="absolute hidden group-hover:block top-full left-0 w-40 bg-black text-white shadow-lg rounded-lg">
-                  <ul className="py-2">
-                    <li>
-                      <a
-                        href="/blog"
-                        className="block px-3 py-2 text-sm hover:bg-gray-800"
-                      >
-                        Blog
-                        <p className="text-xs text-gray-500">Read our latest insights</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/docs"
-                        className="block px-3 py-2 text-sm hover:bg-gray-800"
-                      >
-                        Docs
-                        <p className="text-xs text-gray-500">Explore our tutorials</p>
-
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/changelog"
-                        className="block px-3 py-2 text-sm hover:bg-gray-800"
-                      >
-                        Changelog
-                        <p className="text-xs text-gray-500">See what&#39;s new</p>
-
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <li className="group relative">
-                <button
-                  className="inline-flex items-center gap-x-1.5 whitespace-pre p-3 text-[14px] text-white transition-colors duration-200 hover:text-blue"
-                  type="button"
-                >
-                  Community
-                  <img
-                    alt=""
-                    width={8}
-                    height={14}
-                    decoding="async"
-                    data-nimg={1}
-                    style={{ color: "transparent" }}
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMCA2Ij48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBkPSJtMSAxIDQgNCA0LTQiIG9wYWNpdHk9Ii42Ii8+PC9zdmc+"
-                  />
-                </button>
-                <div className="absolute hidden group-hover:block top-full left-0 w-40 bg-black text-white shadow-lg rounded-lg">
-                  <ul className="py-2">
-                    <li>
-                      <a
-                        href="/forums"
-                        className="block px-3 py-2 text-sm hover:bg-gray-800"
-                      >
-                        X.com
-                        <p className="text-xs text-gray-500">Follow our latest news</p>
-
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/events"
-                        className="block px-3 py-2 text-sm hover:bg-gray-800"
-                      >
-                        Linkedin
-                        <p className="text-xs text-gray-500">Get updates</p>
-
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/events"
-                        className="block px-3 py-2 text-sm hover:bg-gray-800"
-                      >
-                        Youtube
-                        <p className="text-xs text-gray-500">Subscribe to the channel</p>
-
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/events"
-                        className="block px-3 py-2 text-sm hover:bg-gray-800"
-                      >
-                        Github
-                        <p className="text-xs text-gray-500">Star us</p>
-
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
               <li>
-                <a
-                  className="inline-flex whitespace-pre p-3 text-[14px] text-white transition-colors duration-200 hover:text-blue"
-                  href="https://huly.blog/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download
-                </a>
+                <a className="text-white/80" href="#projects">Projects</a>
+              </li>
+              <li>
+                <a className="text-white/80" href="#skills">Skills</a>
+              </li>
+              <li>
+                <a className="text-white/80" href="#contact">Contact</a>
               </li>
             </ul>
           </nav>
-          <div className="ml-auto flex gap-x-3.5">
-            <Button size={"sm"}>
-              {/* <GithubIcon className="mr-1" size={16} /> */}
-              STAR US
+          <div className="flex items-center space-x-4">
+            <Button size="sm" className="bg-white/10 text-white border border-white/20">
+              Resume
             </Button>
-            <Button size={"sm"} variant={"outline"}>
-              Sign In
-            </Button>
-            <Button size={"sm"} variant={"outline"}>
-              GET STARTED
+            <Button size="sm" className="bg-blue-600 text-white">
+              Contact Me
             </Button>
           </div>
         </div>
       </header>
+    );
+  }
+
+  return (
+    <React.Fragment>
+      <div className={`fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none transition-all duration-300 ${isScrolled ? '' : ''}`}>
+        <header
+          className={`w-full max-w-6xl mx-auto h-[60px] flex items-center justify-between px-6 transition-all duration-300 pointer-events-auto
+            ${isScrolled ? 'bg-black/90 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg' : 'bg-transparent'}
+          `}
+          style={{
+            boxShadow: isScrolled ? '0 4px 32px 0 rgba(0,0,0,0.18)' : 'none',
+          }}
+        >
+          <nav className="flex items-center space-x-8">
+            <a href="/" className="text-white font-bold text-xl">
+              Portfolio
+            </a>
+            <ul className="flex space-x-6">
+              <li>
+                <a className="text-white/80 hover:text-white transition-colors duration-200" href="#about">About</a>
+              </li>
+              <li>
+                <a className="text-white/80 hover:text-white transition-colors duration-200" href="#projects">Projects</a>
+              </li>
+              <li>
+                <a className="text-white/80 hover:text-white transition-colors duration-200" href="#skills">Skills</a>
+              </li>
+              <li>
+                <a className="text-white/80 hover:text-white transition-colors duration-200" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <div className="flex items-center space-x-4">
+            <Button size="sm" className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
+              Resume
+            </Button>
+            <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+              Contact Me
+            </Button>
+          </div>
+        </header>
+      </div>
       <main className="h-screen w-screen flex justify-center items-start font-[family-name:var(--font-geist-sans)]">
         <section className="hero relative h-full w-full min-h-[1438px] bg-[#111] overflow-hidden bg-grey-1 flex justify-center items-center">
           <div>
