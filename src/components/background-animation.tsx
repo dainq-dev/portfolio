@@ -56,7 +56,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = () => {
             },
             links: {
               color: '#DDE6ED',
-              distance: 220,
+              distance: 200,
               enable: true,
               opacity: 0.3,
               width: 0.1,
@@ -68,7 +68,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = () => {
                 default: 'bounce',
               },
               random: true,
-              speed: 5,
+              speed: 3,
               straight: false,
             },
             number: {

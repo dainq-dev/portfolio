@@ -32,7 +32,7 @@ export default function Home() {
             <a href="/" className="text-white font-bold text-xl">
               Portfolio
             </a>
-            <ul className="flex space-x-6">
+            <ul className="flex space-x-8">
               <li>
                 <a className="text-white/80" href="#about">About</a>
               </li>
@@ -43,7 +43,7 @@ export default function Home() {
                 <a className="text-white/80" href="#skills">Skills</a>
               </li>
               <li>
-                <a className="text-white/80" href="#contact">Contact</a>
+                <a className="text-white/80" href="#resume">Resume</a>
               </li>
             </ul>
           </nav>
@@ -80,13 +80,13 @@ export default function Home() {
                 <a className="text-white/80 hover:text-white transition-colors duration-200" href="#about">About</a>
               </li>
               <li>
+                <a className="text-white/80 hover:text-white transition-colors duration-200" href="#experience">Experience</a>
+              </li>
+              <li>
                 <a className="text-white/80 hover:text-white transition-colors duration-200" href="#projects">Projects</a>
               </li>
               <li>
                 <a className="text-white/80 hover:text-white transition-colors duration-200" href="#skills">Skills</a>
-              </li>
-              <li>
-                <a className="text-white/80 hover:text-white transition-colors duration-200" href="#contact">Contact</a>
               </li>
             </ul>
           </nav>
@@ -110,12 +110,10 @@ export default function Home() {
 
               </h1>
             <p className="relative z-30 mt-5 max-w-md text-[18px] leading-snug tracking-tight  text-white">
-              Huly, an open-source platform, serves as an all-in-one replacement of
-              Linear, Jira, Slack, and Notion.
             </p>
             <div className="mt-11 lg:mt-9 md:mt-7 sm:mt-5">
               <GradientButton>
-                <span className="text-[#5A250A]">Try it Free</span>
+                <span className="text-[#5A250A]">Explore now</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
