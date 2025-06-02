@@ -7,6 +7,7 @@ import React, { useEffect, useState, createContext, useContext } from "react";
 import InteractiveBackground from "@/components/InteractiveObject";
 import SessionProjects from "@/components/session-projects";
 import ExperienceSection from "@/components/session-experience";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => { } });
 
@@ -122,6 +123,7 @@ export default function Home() {
               </div>
               <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-black via-blue-700 to-purple-700 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-2 drop-shadow-lg">Nguyễn Quốc Đại</h1>
               <h2 className="text-xl md:text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4 tracking-wide">Software Developer</h2>
+              <h3 className="text-black-700 dark:text-white-500 mb-4">🗺 Ho Chi Minh city, Viet Nam</h3>
               <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
                 <a href="mailto:dainguyen020199@gmail.com" className="hover:scale-110 transition-transform" title="Email"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#60a5fa" d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.379l8 5.334 8-5.334V6.5a.5.5 0 0 0-.5-.5h-15Zm15 13a.5.5 0 0 0 .5-.5V9.121l-7.5 5-7.5-5V17.5a.5.5 0 0 0 .5.5h15Z" /></svg></a>
                 <a href="https://github.com/dainq-dev" target="_blank" rel="noopener" className="hover:scale-110 transition-transform" title="Github"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.089 2.91.833.091-.647.35-1.09.636-1.341-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z" /></svg></a>
@@ -129,7 +131,23 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
                 <a href="/NguyenQuocDai_CV_HCM.pdf" download className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-500 dark:to-purple-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform">Download CV</a>
-                <a href="#contact" className="inline-block px-6 py-2 rounded-full border border-blue-400 text-blue-700 dark:text-blue-400 font-semibold hover:bg-blue-400 dark:hover:text-white transition-colors shadow-lg">Contact Me</a>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <a href="#contact" className="inline-block px-6 py-2 rounded-full border border-blue-400 text-blue-700 dark:text-blue-400 font-semibold hover:bg-blue-400 dark:hover:text-white transition-colors shadow-lg">Contact Me</a>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-70 p-2 z-1002" side="top">
+                    <ul className="grid gap-2 bg-white/50 rounded-sm">
+                      <li className="flex justify-start">
+                        Email:&ensp;
+                        <a href="mailto:dainguyen020199@gmail.com" className="" title="Email">dainguyen020199@gmail.com</a>
+                      </li>
+                      <li className="flex justify-start">
+                        Phone number:&ensp;
+                        <a href="tel:+84-961664550"><p>+84-961664550</p></a>
+                      </li>
+                    </ul>
+                  </PopoverContent>
+                </Popover>
               </div>
               <p className="w-full mx-auto text-lg text-gray-700 dark:text-gray-300 font-medium leading-relaxed animate-fade-in-up text-center md:text-left">
                 Versatile and results-driven Full-Stack Software Engineer with nearly 4 years of hands-on experience designing and developing end-to-end web applications. Adept in both front-end and back-end technologies, with a strong foundation in TypeScript, React.js, Next.js, NestJS, and PostgreSQL. Proven ability to deliver high-quality, scalable solutions across various domains including healthcare, CRM, and data analytics.
@@ -264,14 +282,14 @@ export default function Home() {
         {/* EXPERIENCE SECTION */}
         <section id="experience" className="py-12 max-w-5xl mx-auto w-full px-4">
           <h2 className="text-2xl font-bold mb-6 text-blue-700 dark:text-blue-400">Professional Experience</h2>
-          
-          <ExperienceSection/>
+
+          <ExperienceSection />
         </section>
 
         {/* EDUCATION SECTION */}
         <section id="projects" className="py-12 max-w-7xl mx-auto w-full px-4">
           <h2 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">Personal Project</h2>
-          <SessionProjects/>
+          <SessionProjects />
         </section>
 
         {/* EDUCATION SECTION */}
