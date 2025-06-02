@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio Dai.nq",
+  title: "Portfolio | Nguyen Quoc Dai",
   description: "Dai.nq's personal portfolio showcasing projects, skills, and experience in web development.",
 };
 
