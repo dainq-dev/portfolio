@@ -74,7 +74,7 @@ function ExperienceSection() {
   ];
 
   return (
-    <div className="space-y-8 relative z-1001">
+    <div className="space-y-8 relative z-998">
       {experiences.map((exp, index) => (
         <div
           key={index}

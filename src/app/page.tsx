@@ -1,10 +1,7 @@
 'use client';
 
 import AnimatedBackground from '@/components/background-animation';
-import { Button } from '@/components/ui/button';
-import GradientButton from '@/components/ui/gradient-button';
-import React, { useEffect, useState, createContext, useContext } from 'react';
-import InteractiveBackground from '@/components/InteractiveObject';
+import React, { useEffect, useState, createContext } from 'react';
 import SessionProjects from '@/components/session-projects';
 import ExperienceSection from '@/components/session-experience';
 import {
@@ -13,7 +10,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 
-const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => {} });
+const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => { } });
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,11 +91,10 @@ export default function Home() {
         className={`z-999 fixed top-4 left-0 right-0 flex justify-center pointer-events-none transition-all duration-300`}
       >
         <header
-          className={`z-999 w-full max-w-5xl mx-auto h-[60px] flex items-center justify-between px-6 transition-all duration-300 pointer-events-auto
-            ${
-              isScrolled
-                ? 'bg-white/80 dark:bg-black/90 backdrop-blur-md rounded-2xl border border-black/10 dark:border-white/10 shadow-lg'
-                : 'bg-transparent'
+          className={`z-1000 w-full max-w-5xl mx-auto h-[60px] flex items-center justify-between px-6 transition-all duration-300 pointer-events-auto
+            ${isScrolled
+              ? 'bg-white/80 dark:bg-black/90 backdrop-blur-md rounded-2xl border border-black/10 dark:border-white/10 shadow-lg'
+              : 'bg-transparent'
             }
           `}
           style={{
@@ -117,6 +113,10 @@ export default function Home() {
                 <a
                   className="text-black/80 dark:text-white/80 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
                   href="#about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   About
                 </a>
@@ -124,7 +124,23 @@ export default function Home() {
               <li>
                 <a
                   className="text-black/80 dark:text-white/80 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
+                  href="#skills"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#skills')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-black/80 dark:text-white/80 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
                   href="#experience"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#experience')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Experience
                 </a>
@@ -133,6 +149,10 @@ export default function Home() {
                 <a
                   className="text-black/80 dark:text-white/80 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
                   href="#projects"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Projects
                 </a>
@@ -140,9 +160,13 @@ export default function Home() {
               <li>
                 <a
                   className="text-black/80 dark:text-white/80 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
-                  href="#skills"
+                  href="#education"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#education')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
-                  Skills
+                  Edu & Cert
                 </a>
               </li>
             </ul>
@@ -172,7 +196,6 @@ export default function Home() {
         </header>
       </div>
       <main className="h-full w-full min-h-[1438px] bg-white dark:bg-[#111111ab] transition-colors duration-300">
-        {/* <InteractiveBackground /> */}
         <section className="max-w-5xl mx-auto w-full px-4 relative flex flex-col items-center justify-center pt-32 pb-16 text-center z-51">
           <div className="flex flex-col  items-center justify-center gap-10 w-full">
             <div className="flex flex-col items-center justify-center  flex-1 z-10 w-full">
@@ -183,10 +206,10 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-black via-blue-700 to-purple-700 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-2 drop-shadow-lg">
+              <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-br from-black via-blue-700 to-purple-700 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-2 drop-shadow-lg">
                 Nguyễn Quốc Đại
               </h1>
-              <h2 className="text-xl md:text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4 tracking-wide">
+              <h2 className="text-xl md:text-2xl font-bold text-blue-700 dark:text-blue-400 mb-4 tracking-wide">
                 Software Developer
               </h2>
               <h3 className="text-black-700 dark:text-white-500 mb-4">
@@ -274,24 +297,20 @@ export default function Home() {
                 </Popover>
               </div>
               <p className="w-full mx-auto text-lg text-gray-700 dark:text-gray-300 font-medium leading-relaxed animate-fade-in-up text-center md:text-left">
-                Summary...........
+                Full-Stack Software Engineer with over 4 years of experience in designing and developing scalable web applications, specializing in TypeScript, React.js, Next.js, NestJS, and PostgreSQL. Proficient in building dynamic front-end interfaces, secure RESTful APIs, and real-time communication systems, with a focus on healthcare, CRM, and data visualization platforms. Adept at leading projects, mentoring junior developers, and implementing DevOps practices using Docker and CI/CD pipelines. Passionate about delivering high-quality, user-centric solutions and fostering innovation through clean, maintainable code.
               </p>
-            </div>
-            {/* Right: Placeholder for 3D or other element if needed later */}
-            <div className="flex-1 flex items-center justify-center w-full md:w-auto h-[0px] md:h-[0px] mt-0 md:mt-0">
-              {/* 3D effect is now site-wide background */}
             </div>
           </div>
         </section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="py-12 max-w-5xl mx-auto w-full px-4">
+        <section id="about" className="py-8 max-w-5xl mx-auto w-full px-4">
           <h2 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">
-            About Me.................
+            About Me
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">About Me</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">Hello, I'm Nguyen Quoc Dai, a passionate Full-Stack Software Engineer based in Ho Chi Minh City, Vietnam. With a Bachelor’s Degree in Information Technology and over four years of professional experience, I thrive on transforming complex challenges into elegant, user-focused solutions. My work spans healthcare platforms, CRM systems, and data visualization tools, leveraging technologies like React.js, Next.js, NestJS, and PostgreSQL. I’m deeply committed to writing clean, scalable code and fostering collaborative, innovative team environments. Whether designing intuitive UI/UX, optimizing APIs, or deploying production-ready systems with Docker and Nginx, I aim to create meaningful impact through technology. Outside of coding, I enjoy exploring new tools, mentoring others, and contributing to open-source projects on GitHub.</p>
           <p className="text-gray-500 dark:text-gray-100">
-            <b>Career Objective:</b> Career Objective...................
+            <b>Career Objective:</b> To secure a Senior Software Engineer position where I can lead complex technical projects, drive innovation, and deliver high-impact, scalable solutions. I aim to leverage my expertise in full-stack development, data visualization, and system architecture to build cutting-edge products while fostering a culture of continuous learning, collaboration, and technical excellence.
           </p>
         </section>
 
@@ -455,10 +474,10 @@ export default function Home() {
           </h2>
           <div className="bg-white/90 dark:bg-white/5 rounded-xl shadow-md p-6 border border-gray-200 dark:border-white/10">
             <h3 className="font-semibold text-lg text-gray-800 dark:text-white mb-1">
-              University
+              Ho Chi Minh City Industry and Trade College (2018 – 2022)
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
-              Bachelor's Degree in ...
+              Bachelor’s Degree in Information Technology
             </p>
           </div>
         </section>
@@ -471,7 +490,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">
             Achievements
           </h2>
-          <ul className="list-disc ml-6 text-gray-700 dark:text-gray-300 space-y-2">
+          <ul className="list-disc ml-6 text-gray-700 dark:text-gray-300 space-y-2 ">
             <li>Top 15 National Finalist – Startup Kite 2021</li>
             <li>
               National Encouragement Award – AI-based smart attendance system
