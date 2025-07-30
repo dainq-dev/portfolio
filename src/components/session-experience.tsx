@@ -12,15 +12,16 @@ function ExperienceSection() {
     {
       company: 'Vietstats Co., Ltd',
       logo: 'VS',
-      period: 'Apr 2024 – Present',
+      period: 'September 2023 – Present',
       role: 'Full-Stack Developer',
       desc: [
-        'Developed a data visualization platform for configuring and embedding charts into external platforms such as WordPress, Node.js, and Java-based CMS',
-        'Designed scalable system architecture and database schema',
-        'Built dynamic front-end interfaces using React.js and Next.js 14 App Router',
-        'Created secure, reusable REST APIs with NestJS and PostgreSQL',
-        'Enabled data-driven storytelling for media companies and enterprises',
-        'Deployed platform with Docker and Nginx in a production environment',
+        'Developed portal.vietstats.vn, a data-as-a-service platform for configuring and embedding interactive economic data charts into external systems (WordPress, Node.js, Java-based CMS).',
+        'Designed scalable system architecture and database schemas.',
+        'Built dynamic, responsive UI with React.js and Next.js 14.',
+        'Created secure RESTful APIs using Nest.js and PostgreSQL.',
+        'Enabled data-driven storytelling for media and enterprises.',
+        'Mentored interns/juniors and conducted code reviews.',
+        'Deployed services using Docker and Nginx.',
       ],
       technologies: [
         'TypeScript',
@@ -36,8 +37,8 @@ function ExperienceSection() {
     {
       company: 'Doctor Check JSC',
       logo: 'DC',
-      period: 'Apr 2022 – Apr 2024',
-      role: 'Front-end / Full-Stack Developer',
+      period: 'Mar 2021 - Aug 2023',
+      role: 'Frontend Developer, Full-Stack Developer',
       desc: [
         'Built and maintained key modules for customer relationship management',
         'Integrated real-time chat (Facebook, Zalo), customer insights, and messaging tools',
@@ -61,15 +62,19 @@ function ExperienceSection() {
       ],
     },
     {
-      company: 'ViHAT Technology Co., Ltd',
-      logo: 'VH',
+      company: 'Miniu Castis Co., Ltd',
+      logo: 'MC',
       period: 'Jan 2022 – Mar 2022',
-      role: 'Front-end Developer (Internship)',
+      role: 'Freelance Full-Stack Developer',
       desc: [
-        'Built CRM modules including multi-channel messaging and email management',
-        'Participated in requirement analysis and feature implementation',
+        'Developed APIs, participated in database system design, and led user interface development',
+        'Performed code reviews.',
+        'Implemented unit tests and integration tests.',
+        'Deployed the system to production.',
+        'Collaborated with the team to ensure code quality and performance.',
+
       ],
-      technologies: ['React.js', 'Next.js', 'Redux-saga', 'Firebase', 'Docker'],
+      technologies: ['TypeScript', 'React.js', 'Express.js', 'Sequelize', 'MySQL', 'Firebase', 'Storybook'],
     },
   ];
 

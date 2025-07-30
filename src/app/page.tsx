@@ -93,7 +93,7 @@ export default function Home() {
         <header
           className={`z-1000 w-full max-w-5xl mx-auto h-[60px] flex items-center justify-between px-6 transition-all duration-300 pointer-events-auto
             ${isScrolled
-              ? 'bg-white/80 dark:bg-black/90 backdrop-blur-md rounded-2xl border border-black/10 dark:border-white/10 shadow-lg'
+              ? 'bg-white/80 dark:bg-black/50 backdrop-blur-md rounded-2xl border border-black/10 dark:border-white/10 shadow-lg'
               : 'bg-transparent'
             }
           `}
@@ -169,6 +169,18 @@ export default function Home() {
                   Edu & Cert
                 </a>
               </li>
+              <li>
+                <a
+                  className="text-black/80 dark:text-white/80 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#education')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </nav>
           <div className="flex items-center space-x-4">
@@ -179,15 +191,15 @@ export default function Home() {
               {theme === 'dark' ? (
                 <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
                   <path
-                    fill="#fff"
-                    d="M17.75 15.5A6.75 6.75 0 0 1 8.5 6.25a.75.75 0 0 0-.75-.75A8 8 0 1 0 18 19.25a.75.75 0 0 0-.75-.75Z"
+                    fill="#fbbf24"
+                    d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1Zm0-20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm10 9h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2ZM4 12a1 1 0 0 1-1-1H2a1 1 0 1 1 0 2h1a1 1 0 0 1 1-1Zm14.95 7.07a1 1 0 0 1-1.41 0l-.7-.7a1 1 0 1 1 1.41-1.42l.7.71a1 1 0 0 1 0 1.41ZM6.11 6.11a1 1 0 0 1-1.41 0l-.7-.7A1 1 0 1 1 5.4 4l.7.7a1 1 0 0 1 0 1.41Zm12.02 0a1 1 0 0 1 0-1.41l.7-.7A1 1 0 1 1 20 5.4l-.7.7a1 1 0 0 1-1.18.01ZM4.22 19.78a1 1 0 0 1 0-1.41l.7-.71a1 1 0 1 1 1.41 1.42l-.7.7a1 1 0 0 1-1.41 0Z"
                   />
                 </svg>
               ) : (
                 <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
                   <path
-                    fill="#fbbf24"
-                    d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1Zm0-20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm10 9h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2ZM4 12a1 1 0 0 1-1-1H2a1 1 0 1 1 0 2h1a1 1 0 0 1 1-1Zm14.95 7.07a1 1 0 0 1-1.41 0l-.7-.7a1 1 0 1 1 1.41-1.42l.7.71a1 1 0 0 1 0 1.41ZM6.11 6.11a1 1 0 0 1-1.41 0l-.7-.7A1 1 0 1 1 5.4 4l.7.7a1 1 0 0 1 0 1.41Zm12.02 0a1 1 0 0 1 0-1.41l.7-.7A1 1 0 1 1 20 5.4l-.7.7a1 1 0 0 1-1.18.01ZM4.22 19.78a1 1 0 0 1 0-1.41l.7-.71a1 1 0 1 1 1.41 1.42l-.7.7a1 1 0 0 1-1.41 0Z"
+                    fill="#fff"
+                    d="M17.75 15.5A6.75 6.75 0 0 1 8.5 6.25a.75.75 0 0 0-.75-.75A8 8 0 1 0 18 19.25a.75.75 0 0 0-.75-.75Z"
                   />
                 </svg>
               )}
@@ -206,7 +218,7 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-br from-black via-blue-700 to-purple-700 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-2 drop-shadow-lg">
+              <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-br from-black/50 via-blue-300 to-purple-700 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-2 drop-shadow-lg h-[100px]">
                 Nguyễn Quốc Đại
               </h1>
               <h2 className="text-xl md:text-2xl font-bold text-blue-700 dark:text-blue-400 mb-4 tracking-wide">
@@ -237,7 +249,7 @@ export default function Home() {
                 >
                   <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
                     <path
-                      fill="#fff"
+                      fill={theme === 'dark' ? '#fff' : '#1f2937'}
                       d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.089 2.91.833.091-.647.35-1.09.636-1.341-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z"
                     />
                   </svg>
@@ -259,7 +271,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
                 <a
-                  href="/NguyenQuocDai_CV_HCM.pdf"
+                  href="/cv-front-end.pdf"
                   download
                   className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-500 dark:to-purple-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform"
                 >
@@ -296,24 +308,32 @@ export default function Home() {
                   </PopoverContent>
                 </Popover>
               </div>
-              <p className="w-full mx-auto text-lg text-gray-700 dark:text-gray-300 font-medium leading-relaxed animate-fade-in-up text-center md:text-left">
-                Full-Stack Software Engineer with over 4 years of experience in designing and developing scalable web applications, specializing in TypeScript, React.js, Next.js, NestJS, and PostgreSQL. Proficient in building dynamic front-end interfaces, secure RESTful APIs, and real-time communication systems, with a focus on healthcare, CRM, and data visualization platforms. Adept at leading projects, mentoring junior developers, and implementing DevOps practices using Docker and CI/CD pipelines. Passionate about delivering high-quality, user-centric solutions and fostering innovation through clean, maintainable code.
-              </p>
+
             </div>
           </div>
         </section>
-
         {/* ABOUT SECTION */}
         <section id="about" className="py-8 max-w-5xl mx-auto w-full px-4">
           <h2 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">
-            About Me
+            Professional Summary
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">Hello, I'm Nguyen Quoc Dai, a passionate Full-Stack Software Engineer based in Ho Chi Minh City, Vietnam. With a Bachelor’s Degree in Information Technology and over four years of professional experience, I thrive on transforming complex challenges into elegant, user-focused solutions. My work spans healthcare platforms, CRM systems, and data visualization tools, leveraging technologies like React.js, Next.js, NestJS, and PostgreSQL. I’m deeply committed to writing clean, scalable code and fostering collaborative, innovative team environments. Whether designing intuitive UI/UX, optimizing APIs, or deploying production-ready systems with Docker and Nginx, I aim to create meaningful impact through technology. Outside of coding, I enjoy exploring new tools, mentoring others, and contributing to open-source projects on GitHub.</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">Versatile and results-oriented Full-Stack Software Engineer with nearly 5 years of experience in
+            developing scalable, end-to-end web applications. Specialized in modern front-end frameworks
+            like React.js and Next.js 14, alongside back-end technologies such as NestJS and PostgreSQL. Adept at building high-performance, responsive interfaces, integrating RESTful/GraphQL APIs, and optimizing UI/UX across devices. Proven experience delivering data visualization platforms, CMS-integrated systems, and
+            healthcare applications. Strong team player with a proactive mindset, attention to detail, and a
+            passion for clean, maintainable code. Comfortable with agile environments, mentoring junior
+            developers, and managing the full software development lifecycle from architecture to
+            deployment.</p>
+          <p className="text-gray-500 dark:text-gray-100 mb-3">
+            <b>Data Visualization Experience:</b> With over 1 year of hands-on experience with charting libraries
+            including Highcharts, Highcharts Stock, ECharts, and ApexCharts. Strong expertise in
+            customizing and optimizing visualizations for clarity, interactivity, and storytelling.
+          </p>
           <p className="text-gray-500 dark:text-gray-100">
-            <b>Career Objective:</b> To secure a Senior Software Engineer position where I can lead complex technical projects, drive innovation, and deliver high-impact, scalable solutions. I aim to leverage my expertise in full-stack development, data visualization, and system architecture to build cutting-edge products while fostering a culture of continuous learning, collaboration, and technical excellence.
+            <b>Career Objective:</b> To grow into a senior engineering position where I can lead complex
+            technical initiatives, mentor high-performing teams, and contribute to building impactful, user- centric products that solve real-world problems.
           </p>
         </section>
-
         {/* SKILLS SECTION */}
         <section id="skills" className="py-12 max-w-5xl mx-auto w-full px-4">
           <h2 className="text-2xl font-bold mb-6 text-blue-700 dark:text-blue-400">
@@ -321,24 +341,15 @@ export default function Home() {
           </h2>
           <div className="flex flex-wrap gap-3 mb-8">
             {[
-              'Full-stack development',
-              'TypeScript',
-              'React.js',
-              'Next.js',
-              'NestJS',
-              'RESTful API',
-              'WebSocket',
-              'UI/UX',
-              'Ant Design',
-              'MUI',
-              'Shadcn',
-              'Agile/Scrum',
-              'Docker',
-              'Nginx',
-              'CI/CD',
-              'Github Action',
-              'Unit Testing',
-              'Jest',
+              'Full-Stack Development',
+              'Data Visualization',
+              'API Development',
+              'Database Management',
+              'DevOps & Deployment',
+              'Mobile Development',
+              'Team Leadership',
+              'Agile Workflow',
+              'Testing & Code Quality',
               'Code Review',
               'Teamwork',
             ].map((skill) => (
@@ -350,9 +361,9 @@ export default function Home() {
               </span>
             ))}
           </div>
-          <h3 className="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-300">
+          <h2 className="text-2xl font-bold mb-6 text-blue-700 dark:text-blue-400">
             Technical Stack
-          </h3>
+          </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <h4 className="font-bold text-gray-800 dark:text-white mb-1">
@@ -377,6 +388,14 @@ export default function Home() {
                 <li>Storybook</li>
                 <li>Tailwind</li>
                 <li>Sass</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-800 dark:text-white mb-1">
+                Mobile
+              </h4>
+              <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                <li>React Native</li>
               </ul>
             </div>
             <div>
@@ -411,11 +430,33 @@ export default function Home() {
             </div>
             <div>
               <h4 className="font-bold text-gray-800 dark:text-white mb-1">
-                Communication
+                API & Communication
               </h4>
               <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
                 <li>WebSocket</li>
                 <li>Socket.IO</li>
+                <li>RESTful API</li>
+                <li>GraphQL</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-800 dark:text-white mb-1">
+                Testing
+              </h4>
+              <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                <li>Unit Tests</li>
+                <li>Jest</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-800 dark:text-white mb-1">
+                DevOps
+              </h4>
+              <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                <li>Docker</li>
+                <li>Nginx</li>
+                <li>Linux</li>
+                <li>GitHub Actions</li>
               </ul>
             </div>
             <div>
@@ -424,29 +465,30 @@ export default function Home() {
               </h4>
               <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
                 <li>Git</li>
-                <li>Docker</li>
                 <li>Jira</li>
                 <li>Figma</li>
                 <li>Zeplin</li>
                 <li>Firebase</li>
+                <li>Kafka</li>
+                <li>Storybook</li>
+                <li>Postman</li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-gray-800 dark:text-white mb-1">
-                Testing & Others
+                AWS & Cloud
               </h4>
               <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                <li>Unit Tests</li>
-                <li>Jest</li>
-                <li>Postman</li>
-                <li>RESTful API</li>
-                <li>Technical documentation</li>
-                <li>Deployment</li>
+                <li>S3</li>
+                <li>EC2</li>
+                <li>API Gateway</li>
+                <li>CloudWatch</li>
+                <li>Route 53</li>
+                <li>Lambda</li>
               </ul>
             </div>
           </div>
         </section>
-
         {/* EXPERIENCE SECTION */}
         <section
           id="experience"
@@ -458,7 +500,6 @@ export default function Home() {
 
           <ExperienceSection />
         </section>
-
         {/* EDUCATION SECTION */}
         <section id="projects" className="py-12 max-w-7xl mx-auto w-full px-4">
           <h2 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">
@@ -466,7 +507,6 @@ export default function Home() {
           </h2>
           <SessionProjects />
         </section>
-
         {/* EDUCATION SECTION */}
         <section id="education" className="py-12 max-w-5xl mx-auto w-full px-4">
           <h2 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">
@@ -481,7 +521,6 @@ export default function Home() {
             </p>
           </div>
         </section>
-
         {/* ACHIEVEMENTS SECTION */}
         <section
           id="achievements"
@@ -496,6 +535,20 @@ export default function Home() {
               National Encouragement Award – AI-based smart attendance system
               with automatic temperature detection
             </li>
+          </ul>
+        </section>
+        {/* CONTACT SECTION */}
+        <section
+          id="contact"
+          className="py-12 max-w-5xl mx-auto w-full px-4"
+        >
+          <h2 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">
+            Contact
+          </h2>
+          <ul className="list-disc ml-6 text-gray-700 dark:text-gray-300 space-y-2 ">
+            <li>Email: dainguyen020199@gmail.com</li>
+            <li>Phone: (+84) 961 664 550</li>
+
           </ul>
         </section>
       </main>
