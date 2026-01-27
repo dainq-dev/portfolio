@@ -14,13 +14,13 @@ export default function HeroSection() {
     <section className="min-h-screen flex items-center justify-center px-4 pt-20 relative">
       <div className="max-w-4xl mx-auto text-center space-y-8">
         {/* Avatar */}
-        <div className="relative w-32 h-32 mx-auto mb-6">
-          <div className="w-full h-full rounded-full overflow-hidden border-4 border-blue-500 shadow-xl">
+        <div className="relative w-36 h-36 mx-auto mb-6">
+          <div className="w-full h-full rounded-full overflow-hidden">
             <Image
-              src="https://ui-avatars.com/api/?name=Nguyen+Quoc+Dai&size=200&background=3b82f6&color=fff&bold=true"
+              src="/dai-nq.png"
               alt="Nguyen Quoc Dai"
-              width={200}
-              height={200}
+              width={240}
+              height={240}
               className="w-full h-full object-cover"
               priority
             />
@@ -51,7 +51,7 @@ export default function HeroSection() {
         {/* Social Links */}
         <div className="flex items-center justify-center gap-4 pt-4">
           <a
-            href="https://github.com/dainguyenx3"
+            href="https://github.com/dainq-dev"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900 transition-all hover:scale-110"
@@ -60,7 +60,7 @@ export default function HeroSection() {
             <Github className="w-6 h-6 text-gray-700 dark:text-gray-300" />
           </a>
           <a
-            href="https://www.linkedin.com/in/nguyen-quoc-dai/"
+            href="https://www.linkedin.com/in/nqd-020199hcm/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900 transition-all hover:scale-110"
@@ -93,5 +93,5 @@ export default function HeroSection() {
         <ChevronDown className="w-8 h-8 text-gray-400 dark:text-gray-600" />
       </div>
     </section>
-  )
+  );
 }

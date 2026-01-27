@@ -1,48 +1,8 @@
-'use client'
-
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { ExternalLink } from 'lucide-react'
-
-interface Project {
-  id: string
-  title: string
-  description: string
-  technologies: string[]
-  role: string
-  productLink: string
-  iframeUrl: string
-}
+import { projects, type Project } from '@/data/projects'
 
 export default function ProjectsSection() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/projects.json')
-      .then(res => res.json())
-      .then(data => {
-        setProjects(data)
-        setLoading(false)
-      })
-      .catch(err => {
-        console.error('Failed to load projects:', err)
-        setLoading(false)
-      })
-  }, [])
-
-  if (loading) {
-    return (
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Personal Projects
-        </h2>
-        <div className="text-center text-gray-600 dark:text-gray-400">
-          Loading projects...
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="max-w-5xl mx-auto">
       <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -126,7 +86,7 @@ export default function ProjectsSection() {
         ))}
       </div>
 
-      {projects.length === 0 && !loading && (
+      {projects.length === 0 && (
         <div className="text-center text-gray-600 dark:text-gray-400 py-12">
           <p>No projects to display yet. Check back soon!</p>
         </div>

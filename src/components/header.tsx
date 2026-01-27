@@ -41,19 +41,12 @@ export default function Header() {
         }`}
       >
         <nav className="flex items-center gap-8">
-          <a
-            href="/"
-            className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-          >
-            Dai.nq
-          </a>
-
           <ul className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <li key={item.href}>
                 <button
                   onClick={() => scrollToSection(item.href)}
-                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="cursor-pointer text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   {item.label}
                 </button>
@@ -64,7 +57,7 @@ export default function Header() {
 
         <button
           onClick={toggleTheme}
-          className="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          className="cursor-pointer p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           aria-label="Toggle theme"
         >
           {theme === 'dark' ? (
@@ -75,5 +68,5 @@ export default function Header() {
         </button>
       </header>
     </div>
-  )
+  );
 }

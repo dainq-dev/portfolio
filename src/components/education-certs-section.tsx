@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import { education, achievements, languages } from '@/data/education'
 import { GraduationCap, Award, Languages } from 'lucide-react'
