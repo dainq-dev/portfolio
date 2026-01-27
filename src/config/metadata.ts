@@ -156,7 +156,7 @@ export const generateMetadata = (): Metadata => {
     category: 'technology',
     classification: 'Portfolio',
 
-    // Verification Tags (add when you have them)
+    // Verification Tags (using HTML file method instead)
     // verification: {
     //   google: 'your-google-verification-code',
     //   yandex: 'your-yandex-verification-code',
