@@ -1,127 +1,195 @@
-'use client';
-import React, { useState } from 'react';
+'use client'
 
-function ExperienceSection() {
-  const [expanded, setExpanded] = useState(null);
+import React, { useState } from 'react'
+import { experiences } from '@/data/experience'
+import { ChevronDown, ChevronUp, Briefcase, Calendar, MapPin } from 'lucide-react'
 
-  const toggleProject = (index: any) => {
-    setExpanded(expanded === index ? null : index);
-  };
+export default function ExperienceSection() {
+  const [expandedCompany, setExpandedCompany] = useState<string | null>(experiences[0]?.id || null)
+  const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({})
 
-  const experiences = [
-    {
-      company: 'Vietstats Co., Ltd',
-      logo: 'VS',
-      period: 'September 2023 – Present',
-      role: 'Full-Stack Developer',
-      desc: [
-        'Developed portal.vietstats.vn, a data-as-a-service platform for configuring and embedding interactive economic data charts into external systems (WordPress, Node.js, Java-based CMS).',
-        'Designed scalable system architecture and database schemas.',
-        'Built dynamic, responsive UI with React.js and Next.js 14.',
-        'Created secure RESTful APIs using Nest.js and PostgreSQL.',
-        'Enabled data-driven storytelling for media and enterprises.',
-        'Mentored interns/juniors and conducted code reviews.',
-        'Deployed services using Docker and Nginx.',
-      ],
-      technologies: [
-        'TypeScript',
-        'Next.js 14',
-        'NestJS',
-        'PostgreSQL',
-        'Firebase',
-        'WebSocket',
-        'Docker',
-        'Nginx',
-      ],
-    },
-    {
-      company: 'Doctor Check JSC',
-      logo: 'DC',
-      period: 'Mar 2021 - Aug 2023',
-      role: 'Frontend Developer, Full-Stack Developer',
-      desc: [
-        'Built and maintained key modules for customer relationship management',
-        'Integrated real-time chat (Facebook, Zalo), customer insights, and messaging tools',
-        'Developed Zalo Mini App for appointments, test results, and promotions',
-        'Enhanced internal tools for doctors and nurses (appointments, health records)',
-        'Built a customer-facing portal for viewing health checkups, reports, and invoices',
-        'Mentored interns and junior developers; performed code reviews',
-        'Optimized performance and deployed system to production',
-      ],
-      technologies: [
-        'React.js',
-        'TypeScript',
-        'Redux-toolkit',
-        'WebSocket',
-        'Firebase',
-        'Next.js',
-        'NestJS',
-        'SQL Server',
-        'Ant Design',
-        'MUI',
-      ],
-    },
-    {
-      company: 'Miniu Castis Co., Ltd',
-      logo: 'MC',
-      period: 'Jan 2022 – Mar 2022',
-      role: 'Freelance Full-Stack Developer',
-      desc: [
-        'Developed APIs, participated in database system design, and led user interface development',
-        'Performed code reviews.',
-        'Implemented unit tests and integration tests.',
-        'Deployed the system to production.',
-        'Collaborated with the team to ensure code quality and performance.',
+  const toggleCompany = (id: string) => {
+    setExpandedCompany(expandedCompany === id ? null : id)
+  }
 
-      ],
-      technologies: ['TypeScript', 'React.js', 'Express.js', 'Sequelize', 'MySQL', 'Firebase', 'Storybook'],
-    },
-  ];
+  const toggleProject = (companyId: string, projectName: string) => {
+    const key = `${companyId}-${projectName}`
+    setExpandedProjects(prev => ({ ...prev, [key]: !prev[key] }))
+  }
 
   return (
-    <div className="space-y-8 relative z-998">
-      {experiences.map((exp, index) => (
-        <div
-          key={index}
-          className="bg-white dark:bg-gray-800/90 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-        >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-500 dark:to-purple-500 flex items-center justify-center text-blue-700 dark:text-white font-bold text-xl">
-                {exp.logo}
-              </div>
-              <div>
-                <h3 className="font-semibold text-xl text-gray-800 dark:text-white">
-                  {exp.company}
-                </h3>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  {exp.period}
-                </span>
-              </div>
-            </div>
-            <span className="text-blue-700 dark:text-blue-400 font-semibold mt-2 md:mt-0">
-              {exp.role}
-            </span>
-          </div>
-          <ul className="list-disc ml-6 text-gray-700 dark:text-gray-300 text-sm space-y-1 mb-2 mt-2">
-            {exp.desc.map((i, descIndex) => (
-              <li key={descIndex}>{i}</li>
-            ))}
-          </ul>
-          <div className="flex flex-wrap gap-2 mt-2">
-            {exp.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-200 text-xs font-semibold border border-blue-200 dark:border-none"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+    <div className="max-w-5xl mx-auto">
+      <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Professional Experience
+      </h2>
 
-export default ExperienceSection;
+      <div className="space-y-6">
+        {experiences.map((exp) => {
+          const isExpanded = expandedCompany === exp.id
+
+          return (
+            <div
+              key={exp.id}
+              className="group bg-gradient-to-br from-white to-blue-50/30 dark:from-gray-800/90 dark:to-blue-900/10 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl overflow-hidden"
+            >
+              {/* Company Header - Always Visible */}
+              <button
+                onClick={() => toggleCompany(exp.id)}
+                className="w-full p-6 text-left transition-colors hover:bg-blue-50/50 dark:hover:bg-gray-700/50"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start gap-4 flex-1">
+                    {/* Company Logo */}
+                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                      {exp.companyLogo}
+                    </div>
+
+                    {/* Company Info */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                        {exp.company}
+                      </h3>
+
+                      {/* Roles - Show latest first */}
+                      <div className="space-y-1 mb-3">
+                        {exp.roles.map((role, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-sm flex-wrap">
+                            <Briefcase className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+                            <span className="font-semibold text-blue-700 dark:text-blue-400">
+                              {role.title}
+                            </span>
+                            <span className="text-gray-500 dark:text-gray-400">
+                              ({role.period})
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Period & Location */}
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                        <div className="flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4" />
+                          <span>{exp.period.start} - {exp.period.end}</span>
+                        </div>
+                        {exp.location && (
+                          <div className="flex items-center gap-1.5">
+                            <MapPin className="w-4 h-4" />
+                            <span>{exp.location}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Expand/Collapse Icon */}
+                  <div className="flex-shrink-0 mt-2">
+                    {isExpanded ? (
+                      <ChevronUp className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+                    ) : (
+                      <ChevronDown className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+                    )}
+                  </div>
+                </div>
+              </button>
+
+              {/* Expandable Content - Projects */}
+              {isExpanded && (
+                <div className="px-6 pb-6 space-y-4 border-t border-gray-200 dark:border-gray-700 pt-4">
+                  {/* Projects */}
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                      Projects ({exp.projects.length})
+                    </h4>
+
+                    {exp.projects.map((project, idx) => {
+                      const projectKey = `${exp.id}-${project.name}`
+                      const isProjectExpanded = expandedProjects[projectKey]
+
+                      return (
+                        <div
+                          key={idx}
+                          className="bg-white/60 dark:bg-gray-900/40 rounded-lg p-4 border border-gray-200 dark:border-gray-600"
+                        >
+                          <button
+                            onClick={() => toggleProject(exp.id, project.name)}
+                            className="w-full text-left"
+                          >
+                            <div className="flex items-start justify-between gap-2">
+                              <div className="flex-1">
+                                <h5 className="font-semibold text-gray-900 dark:text-white mb-1">
+                                  {project.name}
+                                </h5>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                  {project.description}
+                                </p>
+                              </div>
+                              {isProjectExpanded ? (
+                                <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" />
+                              ) : (
+                                <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" />
+                              )}
+                            </div>
+                          </button>
+
+                          {isProjectExpanded && (
+                            <div className="mt-3 space-y-3">
+                              {project.achievements && project.achievements.length > 0 && (
+                                <div>
+                                  <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Key Achievements:
+                                  </p>
+                                  <ul className="list-disc list-inside space-y-1 text-sm text-gray-600 dark:text-gray-400 ml-2">
+                                    {project.achievements.map((achievement, i) => (
+                                      <li key={i}>{achievement}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+
+                              <div>
+                                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                  Technologies:
+                                </p>
+                                <div className="flex flex-wrap gap-1.5">
+                                  {project.technologies.map((tech) => (
+                                    <span
+                                      key={tech}
+                                      className="px-2 py-0.5 rounded-md bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 text-xs font-medium"
+                                    >
+                                      {tech}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  {/* Overall Technologies Used */}
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      Technologies Used
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 dark:from-blue-900/60 dark:to-purple-900/60 dark:text-blue-200 text-sm font-semibold border border-blue-200 dark:border-blue-800"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}

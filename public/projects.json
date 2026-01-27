@@ -1,0 +1,20 @@
+[
+  {
+    "id": "project-1",
+    "title": "Sample Project 1",
+    "description": "This is a demo project placeholder. Update this with your actual project details including technologies used, your role, and key achievements.",
+    "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    "role": "Full-Stack Developer",
+    "productLink": "https://example.com",
+    "iframeUrl": "https://example.com"
+  },
+  {
+    "id": "project-2",
+    "title": "Sample Project 2",
+    "description": "This is a demo project placeholder. Replace with your real project information, technologies, and accomplishments.",
+    "technologies": ["Vue.js", "Node.js", "PostgreSQL", "Docker"],
+    "role": "Full-Stack Developer",
+    "productLink": "https://example.com",
+    "iframeUrl": "https://example.com"
+  }
+]
