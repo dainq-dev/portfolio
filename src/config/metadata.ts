@@ -26,7 +26,12 @@ export const keywords = [
   'Full-Stack Developer',
   'Software Engineer',
   'Nguyen Quoc Dai',
-
+  'Nguyễn Quốc Đại',
+  'Đại Front-end Developer',
+  'Đại Software Engineer',
+  'Portfolio Đại Nguyễn',
+  'Dai Nguyen Portfolio',
+  
   // Technical Skills
   'Next.js Developer',
   'React Developer',
@@ -134,18 +139,15 @@ export const generateMetadata = (): Metadata => {
     // Icons
     icons: {
       icon: [
-        { url: '/favicon.ico' },
-        { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+        { url: '/favicon/favicon.ico' },
+        { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+        { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       ],
       apple: [
-        { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+        { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
       ],
       other: [
-        {
-          rel: 'mask-icon',
-          url: '/safari-pinned-tab.svg',
-        },
+        { rel: 'mask-icon', url: '/favicon/favicon-32x32.png', },
       ],
     },
 
